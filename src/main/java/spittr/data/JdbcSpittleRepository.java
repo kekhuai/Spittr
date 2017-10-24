@@ -37,7 +37,7 @@ public class JdbcSpittleRepository implements SpittleRepository {
             return new Spittle(
                     resultSet.getLong("id"),
                     resultSet.getString("message"),
-                    resultSet.getDate("created_at"),
+                    resultSet.getDate("created_at").toLocalDate(),
                     resultSet.getDouble("longitude"),
                     resultSet.getDouble("latitude"));
         }

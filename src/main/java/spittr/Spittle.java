@@ -1,6 +1,6 @@
 package spittr;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -11,17 +11,17 @@ public class Spittle {
 
     private final String message;
 
-    private final Date time;
+    private final LocalDate time;
 
     private Double latitude;
 
     private Double longitude;
 
-    public Spittle(String message, Date time) {
+    public Spittle(String message, LocalDate time) {
         this(null, message, time, null, null);
     }
 
-    public Spittle(Long id, String message, Date time, Double latitude, Double longitude) {
+    public Spittle(Long id, String message, LocalDate time, Double latitude, Double longitude) {
         super();
         this.id = id;
         this.message = message;
@@ -38,7 +38,7 @@ public class Spittle {
         return message;
     }
 
-    public Date getTime() {
+    public LocalDate getTime() {
         return time;
     }
 
