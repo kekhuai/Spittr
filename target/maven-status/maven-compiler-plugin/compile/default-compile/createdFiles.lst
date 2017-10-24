@@ -1,9 +1,0 @@
-spittr/PackageMarker.class
-spittr/Spittle.class
-spittr/data/SpittleRepository.class
-spittr/config/RootConfig.class
-spittr/config/SpittrWebAppInitializer.class
-spittr/web/HomeController.class
-spittr/web/PackageMarker.class
-spittr/web/SpittleController.class
-spittr/config/WebConfig.class
