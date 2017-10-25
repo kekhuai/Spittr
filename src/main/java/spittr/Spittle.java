@@ -1,6 +1,5 @@
 package spittr;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;

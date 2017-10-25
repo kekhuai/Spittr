@@ -8,7 +8,7 @@
     <properties>
 
 		<!-- Generic properties -->
-		<java.version>1.8</java.version>
+		<java.version>9</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		
@@ -32,8 +32,8 @@
 		<junit.version>4.11</junit.version>
         
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>9</maven.compiler.source>
+        <maven.compiler.target>9</maven.compiler.target>
 
 	</properties>
 	
@@ -129,5 +129,5 @@
 		</dependency>
 		
 
-	</dependencies>	
+	</dependencies>
 </project>
