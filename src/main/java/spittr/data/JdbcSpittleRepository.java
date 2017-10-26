@@ -44,4 +44,9 @@ public class JdbcSpittleRepository implements SpittleRepository {
         
     }
 
+    @Override
+    public Spittle findOne(long id) {
+        return jdbc.queryForObject("select id, message, create_at, latitude, longitude from Spittle where id = ?", new SpittleRowMapper(), id);
+    }
+
 }
