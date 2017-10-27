@@ -2,8 +2,7 @@ package spittr;
 
 import java.time.LocalDateTime;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
+import java.util.Objects;
 
 public class Spittle {
 
@@ -51,13 +50,17 @@ public class Spittle {
     }
 
     @Override
-    public int hashCode() {
-        return HashCodeBuilder.reflectionHashCode(this, "id", "time");
+    public boolean equals(final Object other) {
+        if (!(other instanceof Spittle)) {
+            return false;
+        }
+        Spittle castOther = (Spittle) other;
+        return Objects.equals(id, castOther.id) && Objects.equals(time, castOther.time);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return EqualsBuilder.reflectionEquals(this, obj, "id", "time");
+    public int hashCode() {
+        return Objects.hash(id, time);
     }
 
 }

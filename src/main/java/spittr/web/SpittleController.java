@@ -16,7 +16,7 @@ import spittr.data.SpittleRepository;
 @Controller
 @RequestMapping(value = "/spittles")
 public class SpittleController {
-    
+
     private static final String MAX_LONG_AS_STRING = "" + Long.MAX_VALUE;
 
     private SpittleRepository spittleRepository;
@@ -25,15 +25,16 @@ public class SpittleController {
     public SpittleController(SpittleRepository spittleRepository) {
         this.spittleRepository = spittleRepository;
     }
-    
+
     @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
     public String spittle(@PathVariable(value = "spittleId") long spittleId, Model model) {
         model.addAttribute(spittleRepository.findOne(spittleId));
         return "spittle";
     }
-    
+
     @RequestMapping(method = RequestMethod.GET)
-    public List<Spittle> spittles(@RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) long max, @RequestParam(value = "count", defaultValue = "20") int count) {
+    public List<Spittle> spittles(@RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) long max,
+            @RequestParam(value = "count", defaultValue = "20") int count) {
         return spittleRepository.findSpittles(max, count);
     }
 
