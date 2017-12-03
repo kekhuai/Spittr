@@ -14,21 +14,23 @@ public class Spitter {
     
     private String lastName;
 
+    private String email;
+
     public Spitter() {
         super();
     }
 
-    public Spitter(String username, String password, String firstName, String lastName) {
-        this(null, username, password, firstName, lastName);
+    public Spitter(String username, String password, String firstName, String lastName, String email) {
+        this(null, username, password, firstName, lastName, email);
     }
 
-    public Spitter(Long id, String username, String password, String firstName, String lastName) {
-        super();
+    public Spitter(Long id, String username, String password, String firstName, String lastName, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
     }
 
     public Long getId() {
@@ -71,19 +73,29 @@ public class Spitter {
         this.lastName = lastName;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
-    public boolean equals(final Object other) {
-        if (!(other instanceof Spitter)) {
-            return false;
-        }
-        Spitter castOther = (Spitter) other;
-        return Objects.equals(username, castOther.username) && Objects.equals(password, castOther.password)
-                && Objects.equals(firstName, castOther.firstName) && Objects.equals(lastName, castOther.lastName);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Spitter spitter = (Spitter) o;
+        return Objects.equals(username, spitter.username) &&
+                Objects.equals(password, spitter.password) &&
+                Objects.equals(firstName, spitter.firstName) &&
+                Objects.equals(lastName, spitter.lastName) &&
+                Objects.equals(email, spitter.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, password, firstName, lastName);
-    }
 
+        return Objects.hash(username, password, firstName, lastName, email);
+    }
 }

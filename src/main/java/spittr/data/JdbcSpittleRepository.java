@@ -24,7 +24,7 @@ public class JdbcSpittleRepository implements SpittleRepository {
 
     @Override
     public List<Spittle> findSpittles(long max, int count) {
-        return jdbc.query("select id, message, created_at, latitude, logitude" + " from Spittle" + " where id < ?"
+        return jdbc.query("select id, message, created_at, latitude, longitude" + " from Spittle" + " where id < ?"
                 + " order by created_at desc limit 20", new SpittleRowMapper(), max);
     }
 
@@ -41,7 +41,7 @@ public class JdbcSpittleRepository implements SpittleRepository {
 
     @Override
     public Spittle findOne(long id) {
-        return jdbc.queryForObject("select id, message, create_at, latitude, longitude from Spittle where id = ?",
+        return jdbc.queryForObject("select id, message, created_at, latitude, longitude from Spittle where id = ?",
                 new SpittleRowMapper(), id);
     }
 
