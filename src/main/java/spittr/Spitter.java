@@ -2,18 +2,32 @@ package spittr;
 
 import java.util.Objects;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Spitter {
-    
+
     private Long id;
-    
+
+    @NotNull
+    @Size(min = 5, max = 16)
     private String username;
-    
+
+    @NotNull
+    @Size(min = 5, max = 25)
     private String password;
-    
+
+    @NotNull
+    @Size(min = 2, max = 30)
     private String firstName;
-    
+
+    @NotNull
+    @Size(min = 2, max = 30)
     private String lastName;
 
+    @NotNull
+    @Email
     private String email;
 
     public Spitter() {
@@ -83,14 +97,16 @@ public class Spitter {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Spitter spitter = (Spitter) o;
-        return Objects.equals(username, spitter.username) &&
-                Objects.equals(password, spitter.password) &&
-                Objects.equals(firstName, spitter.firstName) &&
-                Objects.equals(lastName, spitter.lastName) &&
-                Objects.equals(email, spitter.email);
+        return Objects.equals(username, spitter.username) && Objects.equals(password, spitter.password)
+                && Objects.equals(firstName, spitter.firstName) && Objects.equals(lastName, spitter.lastName)
+                && Objects.equals(email, spitter.email);
     }
 
     @Override

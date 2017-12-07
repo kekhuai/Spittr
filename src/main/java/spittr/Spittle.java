@@ -1,7 +1,6 @@
 package spittr;
 
 import java.time.LocalDateTime;
-
 import java.util.Objects;
 
 public class Spittle {

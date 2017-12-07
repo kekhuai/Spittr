@@ -32,8 +32,9 @@ public class SpitterControllerTest {
         SpitterController controller = new SpitterController(mockRepository);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/spitter/register").param("firstName", "Jack")
-                .param("lastName", "Bauer").param("username", "jbauer").param("password", "24hours").param("email", "jbauer@ctu.gov"))
+        mockMvc.perform(
+                MockMvcRequestBuilders.post("/spitter/register").param("firstName", "Jack").param("lastName", "Bauer")
+                        .param("username", "jbauer").param("password", "24hours").param("email", "jbauer@ctu.gov"))
                 .andExpect(MockMvcResultMatchers.redirectedUrl("/spitter/jbauer"));
         Mockito.verify(mockRepository, Mockito.atLeastOnce()).save(unsaved);
     }
